@@ -19,7 +19,7 @@ score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add('hidden');
 
-const score = [0, 0];
+let score = [0, 0];
 let currentscore = 0;
 let activePlayer = 0;
 let playing = true;
@@ -65,7 +65,7 @@ btnHold.addEventListener('click', function () {
       score[activePlayer];
 
     // if score >= 100 player wines
-    if (score[activePlayer] >= 20) {
+    if (score[activePlayer] >= 100) {
       playing = false;
       diceEl.classList.add('hidden');
       document
@@ -80,3 +80,23 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
+btnNew.addEventListener('click', function(){
+    playing = true
+    score = [0,0]
+    activePlayer = 0
+    currentscore = 0
+    document.getElementById(`score--0`).textContent =
+      score[activePlayer];
+      document.getElementById(`score--1`).textContent =
+      score[activePlayer];
+      document.getElementById(`current--${activePlayer}`).textContent =
+      currentscore;
+
+      player1El.classList.add('player--active'); 
+      player2El.classList.remove('player--active');
+      diceEl.classList.add('hidden');
+      document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove('player--winner'); 
+})
