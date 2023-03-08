@@ -90,13 +90,18 @@ btnNew.addEventListener('click', function(){
       score[activePlayer];
       document.getElementById(`score--1`).textContent =
       score[activePlayer];
-      document.getElementById(`current--${activePlayer}`).textContent =
+      document.getElementById(`current--0`).textContent =
+      currentscore;
+      document.getElementById(`current--1`).textContent =
       currentscore;
 
       player1El.classList.add('player--active'); 
       player2El.classList.remove('player--active');
       diceEl.classList.add('hidden');
       document
-      .querySelector(`.player--${activePlayer}`)
+      .querySelector(`.player--0`)
+      .classList.remove('player--winner'); 
+      document
+      .querySelector(`.player--1`)
       .classList.remove('player--winner'); 
 })
